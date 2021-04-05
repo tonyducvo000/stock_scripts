@@ -1,10 +1,5 @@
-#Simple stock graph
+#Simple script for graphing multiple stocks
 #This will take in multiple stock tickers and graph it on a plot
-#purpose is to allow users to compare their favorite stock relative to other stocks within the same
-#sector.
-
-
-####TODO: implement ticker for indexes.  Use stooq: f = web.DataReader('^DJI', 'stooq')
 
 import pandas_datareader.data as web
 import datetime as dt
@@ -13,7 +8,6 @@ import matplotlib.pyplot as plt
 list = []
 start = dt.datetime(2020, 1, 1)
 current = dt.datetime.now()
-
 
 while True:
 
@@ -34,9 +28,6 @@ while True:
         print("Unable to retrieve stock data!  Please enter the ticker symbol again!\n")
 
 print(f"Your stocks that you inputted: {list}...  Generating graph now...")
-
-
-#need to graph the charts now
 
 for index in list:
     web.DataReader(index, 'yahoo', start, current)['Close'].plot(label=index)
