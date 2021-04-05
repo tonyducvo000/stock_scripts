@@ -27,6 +27,11 @@ while True:
     except:
         print("Unable to retrieve stock data!  Please enter the ticker symbol again!\n")
 
+#if user presses q without entering any tickers, just quit the program
+if not list:
+    print ('Your list is empty!')
+    quit()
+
 print(f"Your stocks that you inputted: {list}...  Generating graph now...")
 
 for index in list:
